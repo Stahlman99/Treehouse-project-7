@@ -4,17 +4,21 @@ import NotFound from './NotFound'
 
 function PhotoContainer(props) {
 
-    //console.log(props.data);
+    let photos
+
+    if(props.data !== undefined && props.data !== null) {
+        photos = props.data.map(photo => {
+            return <Photo key={photo.id}src={`https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}/>
+        });
+    } else {
+        photos = <NotFound />;
+    }
 
     return(
         <div className="photo-container">
-            <h2>Results</h2>
+            <h2>{props.title}</h2>
             <ul>
-                <Photo src="https://farm5.staticflickr.com/4334/37032996241_4c16a9b530.jpg"/>
-                <Photo src="https://farm5.staticflickr.com/4342/36338751244_316b6ee54b.jpg"/>
-                <Photo src="https://farm5.staticflickr.com/4343/37175099045_0d3a249629.jpg"/>
-                <Photo src="https://farm5.staticflickr.com/4425/36337012384_ba3365621e.jpg"/>
-                <NotFound />
+                {photos}
             </ul>
         </div>
     );
