@@ -26,7 +26,7 @@ class App extends Component {
       catPics: [],
       dogPics: [],
       computerPics: [],
-      searchRes: []
+      searchRes: undefined
     }
   }
   
@@ -67,7 +67,6 @@ class App extends Component {
   performSearch = (query) => {
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&sort=relevance&per_page=24&format=json&nojsoncallback=1`)
     .then(res => {
-      console.log(res.data.photos.photo);
       this.setState({
         searchRes: res.data.photos.photo
       });

@@ -9,12 +9,15 @@ function PhotoContainer(props) {
     let photos;
 
     // Creates a Photo component for each picture.
-    if(props.data !== undefined && props.data !== null) {
+    if(props.data === undefined) {
+        photos = <h1 className='not-found'>Loading...</h1>;
+    }
+    else if (props.data.length <= 0){
+        photos = <NotFound />;
+    } else {
         photos = props.data.map(photo => {
             return <Photo key={photo.id}src={`https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}/>
         });
-    } else {
-        photos = <NotFound />;
     }
 
     // Returns the component with the photos included.
