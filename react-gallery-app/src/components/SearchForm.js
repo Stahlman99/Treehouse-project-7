@@ -1,17 +1,19 @@
+// Import packages
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
+// This class creates our search component.
 class SearchForm extends Component{
-        
-    onSearchChange = e => {
-        this.setState({ searchText: e.target.value });
-    }
     
+    // This method prevents the default behavior, calls the search function, and redirects to '/search'.
     handleSubmit = e => {
         e.preventDefault();
         this.props.onSearch(this.query.value);
         e.currentTarget.reset();
+        this.props.history.push('/search');
     }
 
+    // This method renders the components to the page.
     render() {
         return(
             <form className="search-form" onSubmit={this.handleSubmit}>
@@ -27,4 +29,4 @@ class SearchForm extends Component{
     }
 }
 
-export default SearchForm;
+export default withRouter(SearchForm);

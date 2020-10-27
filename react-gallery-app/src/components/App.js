@@ -1,3 +1,4 @@
+// Import packages
 import React, { Component } from 'react';
 import {
   BrowserRouter,
@@ -7,6 +8,7 @@ import {
 } from 'react-router-dom';
 import axios from 'axios'
 
+// Import Components
 import '../App.css';
 import SearchForm from './SearchForm'
 import Nav from './Nav'
@@ -14,9 +16,10 @@ import PhotoContainer from './PhotoContainer'
 import apiKey from '../config.js';
 import NotFound from './NotFound'
 
+// This is the main component for our app.
 class App extends Component {
   
-
+  // App class constructor defines the state for use within our app.
   constructor() {
     super();
     this.state = {
@@ -27,7 +30,7 @@ class App extends Component {
     }
   }
   
-
+  // This method sets the values of the three default search options when the component mounts.
   componentDidMount() {
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=cats&sort=relevance&per_page=24&format=json&nojsoncallback=1`)
     .then(res => {
@@ -60,6 +63,7 @@ class App extends Component {
     });
   }
 
+  // This method fetches the data for a custom query.
   performSearch = (query) => {
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&sort=relevance&per_page=24&format=json&nojsoncallback=1`)
     .then(res => {
@@ -71,15 +75,15 @@ class App extends Component {
     .catch(error => {
       console.log('Error fetching and parsing data', error);
     });
-    this.context.history.push('/search')
   }
 
+  // This method renders the components to the page.
   render() {
     
     return (
       <BrowserRouter>
         <div className="container">
-          <SearchForm onSearch={() => this.performSearch}/>
+          <SearchForm onSearch={this.performSearch}/>
           <Nav />
           <Switch>
             <Route exact path="/" render={() => <Redirect to='/cats'/>}/>

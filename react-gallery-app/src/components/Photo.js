@@ -1,5 +1,7 @@
+// Import packages
 import React from 'react';
 
+// This function creates the Photo components
 function Photo(props) {
     return (
         <li>

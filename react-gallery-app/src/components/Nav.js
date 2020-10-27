@@ -1,7 +1,8 @@
+// Import packages
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-
+// Createsmthe navigation elements.
 function Nav() {
     return (
         <nav className="main-nav">
