@@ -16,7 +16,7 @@ function PhotoContainer(props) {
         photos = <NotFound />;
     } else {
         photos = props.data.map(photo => {
-            return <Photo key={photo.id}src={`https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}/>
+            return <Photo key={photo.id}src={`https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_w.jpg`}/>
         });
     }
 

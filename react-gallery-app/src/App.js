@@ -9,12 +9,12 @@ import {
 import axios from 'axios'
 
 // Import Components
-import '../App.css';
-import SearchForm from './SearchForm'
-import Nav from './Nav'
-import PhotoContainer from './PhotoContainer'
-import apiKey from '../config.js';
-import NotFound from './NotFound'
+import './App.css';
+import SearchForm from './components/SearchForm'
+import Nav from './components/Nav'
+import PhotoContainer from './components/PhotoContainer'
+import apiKey from './config.js';
+import NotFound from './components/NotFound'
 
 // This is the main component for our app.
 class App extends Component {
@@ -86,7 +86,7 @@ class App extends Component {
           <Nav />
           <Switch>
             <Route exact path="/" render={() => <Redirect to='/cats'/>}/>
-            <Route path="/search" render={() => <PhotoContainer title='Search Results'data={this.state.searchRes}/>}/>
+            <Route path="/search" render={() => <PhotoContainer title='Search Results:'data={this.state.searchRes}/>}/>
             <Route path="/cats" render={() => <PhotoContainer title='Cats' data={this.state.catPics}/>}/>
             <Route path="/dogs" render={() => <PhotoContainer title='Dogs'data={this.state.dogPics}/>}/>
             <Route path="/computers" render={() => <PhotoContainer title='Computers'data={this.state.computerPics}/>}/>

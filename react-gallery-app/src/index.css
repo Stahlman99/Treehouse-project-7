@@ -2,6 +2,8 @@ body {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   color: #3f4850;
+  /* Added new background color*/
+  background-color: #485158;
 }
 
 h2 {
@@ -61,7 +63,7 @@ input {
 .main-nav .active,
 .main-nav a:hover,
 .search-form button:hover {
-  background-color: #275270;
+  background-color: #4a6e88;
 }
 
 .photo-container ul {
@@ -70,6 +72,10 @@ input {
   justify-content: space-between;
   -ms-align-items: flex-start;
   align-items: flex-start;
+}
+
+.photo-container h2 {
+  color: #ebf4fd;
 }
 
 .photo-container ul li {
@@ -87,6 +93,10 @@ input {
 
 .photo-container li:hover img {
   transform: scale(1.65);
+}
+
+.not-found {
+  color: #ebf4fd;
 }
 
 .photo-container .not-found {
