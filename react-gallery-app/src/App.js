@@ -65,6 +65,9 @@ class App extends Component {
 
   // This method fetches the data for a custom query.
   performSearch = (query) => {
+    this.setState({
+      searchRes: undefined
+    });
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&sort=relevance&safe_search=1&per_page=24&format=json&nojsoncallback=1`)
     .then(res => {
       this.setState({
