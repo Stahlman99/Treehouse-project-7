@@ -1,5 +1,10 @@
 # Treehouse-project-7
 
+
+In order to run this project locally, you will need to create a Pexels account and create a config.js file that exports your own API key named 'apiKey'
+- https://www.pexels.com/
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

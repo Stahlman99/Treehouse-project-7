@@ -5,9 +5,13 @@ import React from 'react';
 function Photo(props) {
     return (
         <li>
-            <img src={props.src} alt=""/>
+            <a target="_blank" rel="noreferrer" className='pexels' href={props.href}>
+                <img src={props.src} alt={props.alt}/>
+            </a>
         </li>
     );
 }
+
+//{`Photographer: ${props.photographerURL}`}
 
 export default Photo;

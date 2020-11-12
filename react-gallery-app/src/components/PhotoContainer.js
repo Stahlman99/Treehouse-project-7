@@ -16,7 +16,7 @@ function PhotoContainer(props) {
         photos = <NoResults />;
     } else {
         photos = props.data.map(photo => {
-            return <Photo key={photo.id}src={`https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_w.jpg`}/>
+            return <Photo href={photo.url} key={photo.id} src={photo.src.landscape} alt={photo.photographer}/>;
         });
     }
 
@@ -27,6 +27,7 @@ function PhotoContainer(props) {
             <ul>
                 {photos}
             </ul>
+            <a className='pexels' href="https://www.pexels.com">Photos provided by Pexels</a>
         </div>
     );
 }
